@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SubPlatform</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+<body>
+  <header>
+    <h1>SubPlatform</h1>
+    <nav>
+      <a href="/">Home</a> |
+      <a href="/about">About</a> |
+      <a href="/contact">Contact</a>
+      <% if user_signed_in? %>
+  <span>Logged in as <%= current_user.email %></span>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign Up", new_user_registration_path %> |
+  <%= link_to "Login", new_user_session_path %>
+<% end %>
+
+    </nav>
+  </header>
+  <% if notice %>
+  <p style="color: green;"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p style="color: red;"><%= alert %></p>
+<% end %>
+
+
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer>
+    <p>© 2025 SubPlatform</p>
+  </footer>
+</body>
+</html>
