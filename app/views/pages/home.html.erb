@@ -14,5 +14,9 @@
       <p>Access all content + exclusive posts</p>
       <button>Subscribe</button>
     </div>
+    <% if user_signed_in? && current_user.plan %>
+  <p>You are on the <strong><%= current_user.plan.name %></strong> plan.</p>
+<% end %>
+
   </div>
 </div>

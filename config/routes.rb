@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "posts/index"
+  get "posts/show"
   get "plans/index"
   get "plans/select"
   devise_for :users
@@ -7,5 +9,6 @@ Rails.application.routes.draw do
   post "plans/select/:id", to: "plans#select", as: "select_plan"
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
+  resources :posts, only: [:index, :show]
 end
 

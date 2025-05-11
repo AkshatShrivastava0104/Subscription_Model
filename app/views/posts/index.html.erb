@@ -1,0 +1,10 @@
+<h2>All Posts</h2>
+
+<% @posts.each do |post| %>
+  <div class="post-box">
+    <h3><%= link_to post.title, post_path(post) %></h3>
+    <% if post.premium? %>
+      <p><strong>Premium</strong></p>
+    <% end %>
+  </div>
+<% end %>

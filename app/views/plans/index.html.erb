@@ -1,2 +1,9 @@
-<h1>Plans#index</h1>
-<p>Find me in app/views/plans/index.html.erb</p>
+<h2>Select a Subscription Plan</h2>
+
+<% @plans.each do |plan| %>
+  <div class="plan-box">
+    <h3><%= plan.name %></h3>
+    <p>₹<%= plan.price %>/month</p>
+    <%= button_to "Choose", select_plan_path(plan), method: :post %>
+  </div>
+<% end %>
